@@ -2,7 +2,7 @@ import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } fro
 
 import { v4 as uuid } from "uuid";
 
-@Entity()
+@Entity("tags")
 class Tag {
 
     @PrimaryColumn()
