@@ -1,5 +1,5 @@
 Arguments: 
-  T:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js typeorm migration:run
+  T:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add jasonwebtoken
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;T:\Android\Sdk\emulator;T:\Android\Sdk\tools;T:\Android\Sdk\tools\bin;T:\Android\Sdk\platform-tools;C:\Program Files\OpenJDK\openjdk-11.0.10_9\bin;T:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;T:\Program Files\Git\cmd;C:\Users\Gustavo\AppData\Local\Microsoft\WindowsApps;C:\Users\Gustavo\.dotnet\tools;C:\Users\Gustavo\AppData\Roaming\npm;t:\Users\Gustavo\AppData\Local\Programs\Microsoft VS Code\bin;T:\Program Files\flutter\bin;C:\Users\Gustavo\AppData\Local\Yarn\bin
@@ -14,12 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: T:\ROCKETSEAT\BOOTCAMPS\NLW TOGETHER - NODEJS\AULA2\O_projetonode\package.json: Unexpected number in JSON at position 206
-      at JSON.parse (<anonymous>)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:321:13
+  Error: https://registry.yarnpkg.com/jasonwebtoken: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -29,18 +34,21 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "dev": "ts-node-dev src/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"0
+      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
     },
     "devDependencies": {
       "@types/express": "^4.17.12",
+      "@types/uuid": "^8.3.0",
       "ts-node-dev": "^1.1.6",
       "typescript": "^4.3.4"
     },
     "dependencies": {
       "express": "^4.17.1",
+      "express-async-errors": "^3.1.1",
       "reflect-metadata": "^0.1.13",
       "sqlite3": "^5.0.2",
-      "typeorm": "^0.2.34"
+      "typeorm": "^0.2.34",
+      "uuid": "^8.3.2"
     }
   }
 
@@ -128,6 +136,11 @@ Lockfile:
     version "0.0.30"
     resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
     integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
+  
+  "@types/uuid@^8.3.0":
+    version "8.3.0"
+    resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
+    integrity sha512-eQ9qFW/fhfGJF8WKHGEHZEyVWfZxrT+6CLIJGBcZPfxUh/+BnEj+UCGYMlr9qZuX/2AltsvwrGqp0LhEW8D0zQ==
   
   "@types/zen-observable@^0.8.2":
     version "0.8.2"
@@ -628,6 +641,11 @@ Lockfile:
     version "1.8.1"
     resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
     integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+  
+  express-async-errors@^3.1.1:
+    version "3.1.1"
+    resolved "https://registry.yarnpkg.com/express-async-errors/-/express-async-errors-3.1.1.tgz#6053236d61d21ddef4892d6bd1d736889fc9da41"
+    integrity sha512-h6aK1da4tpqWSbyCa3FxB/V6Ehd4EEB15zyQq9qe75OZBp0krinNKuH4rAY+S/U/2I36vdLAUFSjQJ+TFmODng==
   
   express@^4.17.1:
     version "4.17.1"
@@ -2070,6 +2088,11 @@ Lockfile:
     version "3.4.0"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
     integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+  
+  uuid@^8.3.2:
+    version "8.3.2"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+    integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
   
   validate-npm-package-license@^3.0.1:
     version "3.0.4"
