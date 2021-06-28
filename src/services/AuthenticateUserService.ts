@@ -24,7 +24,7 @@ class AuthenticateUserService {
         });
         
         if (!user) {
-            throw new Error("Email/Senha está errada!")
+            throw new Error("Email/Senha está errada! (email)")
         }
 
         // Verificar se a senha está correta
@@ -32,7 +32,7 @@ class AuthenticateUserService {
         const passwordMatch =  await compare(password, user.password);
 
         if (!passwordMatch) {
-            throw new Error("Email/Senha está errada!")
+            throw new Error("Email/Senha está errada! (senha)")
         }
 
         // Gerar token
